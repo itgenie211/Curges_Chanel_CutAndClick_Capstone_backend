@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const hairstyleController = require('../controllers/hairstyleController');
+const hairstyleController = require('../controllers/hairstylesController');
 
 // GET all hairstyles
 router.get('/', hairstyleController.getAllHairstyles);

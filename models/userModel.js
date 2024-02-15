@@ -1,5 +1,5 @@
+const mongoose = require('mongoose')
 const {Schema, model} = require('../config/db-connection')
-
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -17,9 +17,13 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true
   }
-})
+});
 
-// You can add pre hooks to your schema right here
+// save middleware
+userSchema.post('save', function (doc, next) {
+  console.log('User saved:', doc);
+  next();
+});
 
 const User = mongoose.model('User', userSchema);
 
